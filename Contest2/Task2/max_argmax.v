@@ -10,7 +10,7 @@ module max_argmax #(parameter WIDTH = 8, parameter SIZE = 2)
     
     genvar i;
     generate
-        for (i = 0; i < 2**SIZE; i = i + 1) begin : input_values
+        for (i = 0; i < 2**SIZE; i = i + 1) begin
             assign values[i + (2**SIZE) - 1] = data_in[WIDTH * (i + 1) - 1:WIDTH * i];
             assign indices[i + (2**SIZE) - 1] = i[SIZE - 1:0];
         end
