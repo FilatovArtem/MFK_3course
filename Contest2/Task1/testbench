@@ -1,0 +1,172 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x14870aaa0 .scope module, "tree_adder_tb" "tree_adder_tb" 2 3;
+ .timescale -9 -12;
+P_0x6000033b9980 .param/l "MAX_SIZE" 0 2 7, +C4<00000000000000000000000000000100>;
+P_0x6000033b99c0 .param/l "WIDTH" 0 2 6, +C4<00000000000000000000000000001000>;
+v0x600002fbda70_0 .var "data_in", 31 0;
+v0x600002fbdb00_0 .net "data_out", 7 0, L_0x600002cbc500;  1 drivers
+S_0x148704bc0 .scope module, "dut" "tree_adder" 2 17, 3 1 0, S_0x14870aaa0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9b80 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000100>;
+P_0x6000033b9bc0 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbd950_0 .net "data_in", 31 0, v0x600002fbda70_0;  1 drivers
+v0x600002fbd9e0_0 .net "data_out", 7 0, L_0x600002cbc500;  alias, 1 drivers
+L_0x600002cbc000 .part v0x600002fbda70_0, 16, 16;
+L_0x600002cbc0a0 .part v0x600002fbda70_0, 0, 16;
+S_0x148704d30 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x148704bc0;
+ .timescale 0 0;
+P_0x6000008ba4c0 .param/l "HALF_SIZE" 1 3 15, +C4<00000000000000000000000000000010>;
+v0x600002fbd710_0 .net "left_half", 15 0, L_0x600002cbc000;  1 drivers
+v0x600002fbd7a0_0 .net "right_half", 15 0, L_0x600002cbc0a0;  1 drivers
+v0x600002fbd830_0 .net "sum_left", 7 0, L_0x600002cbc280;  1 drivers
+v0x600002fbd8c0_0 .net "sum_right", 7 0, L_0x600002cbc460;  1 drivers
+L_0x600002cbc500 .arith/sum 8, L_0x600002cbc280, L_0x600002cbc460;
+S_0x1487043d0 .scope module, "adder_left" "tree_adder" 3 26, 3 1 0, S_0x148704d30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9500 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000010>;
+P_0x6000033b9540 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbd050_0 .net "data_in", 15 0, L_0x600002cbc000;  alias, 1 drivers
+v0x600002fbd0e0_0 .net "data_out", 7 0, L_0x600002cbc280;  alias, 1 drivers
+L_0x600002cbc140 .part L_0x600002cbc000, 8, 8;
+L_0x600002cbc1e0 .part L_0x600002cbc000, 0, 8;
+S_0x148704540 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x1487043d0;
+ .timescale 0 0;
+P_0x6000008ba5c0 .param/l "HALF_SIZE" 1 3 15, +C4<00000000000000000000000000000001>;
+v0x600002fbce10_0 .net "left_half", 7 0, L_0x600002cbc140;  1 drivers
+v0x600002fbcea0_0 .net "right_half", 7 0, L_0x600002cbc1e0;  1 drivers
+v0x600002fbcf30_0 .net "sum_left", 7 0, L_0x6000036bc540;  1 drivers
+v0x600002fbcfc0_0 .net "sum_right", 7 0, L_0x6000036bc5b0;  1 drivers
+L_0x600002cbc280 .arith/sum 8, L_0x6000036bc540, L_0x6000036bc5b0;
+S_0x148708f50 .scope module, "adder_left" "tree_adder" 3 26, 3 1 0, S_0x148704540;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9c80 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000001>;
+P_0x6000033b9cc0 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbcbd0_0 .net "data_in", 7 0, L_0x600002cbc140;  alias, 1 drivers
+v0x600002fbcc60_0 .net "data_out", 7 0, L_0x6000036bc540;  alias, 1 drivers
+S_0x1487090c0 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x148708f50;
+ .timescale 0 0;
+L_0x6000036bc540 .functor BUFZ 8, L_0x600002cbc140, C4<00000000>, C4<00000000>, C4<00000000>;
+S_0x148709230 .scope module, "adder_right" "tree_adder" 3 32, 3 1 0, S_0x148704540;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9e00 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000001>;
+P_0x6000033b9e40 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbccf0_0 .net "data_in", 7 0, L_0x600002cbc1e0;  alias, 1 drivers
+v0x600002fbcd80_0 .net "data_out", 7 0, L_0x6000036bc5b0;  alias, 1 drivers
+S_0x1487093a0 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x148709230;
+ .timescale 0 0;
+L_0x6000036bc5b0 .functor BUFZ 8, L_0x600002cbc1e0, C4<00000000>, C4<00000000>, C4<00000000>;
+S_0x148709510 .scope module, "adder_right" "tree_adder" 3 32, 3 1 0, S_0x148704d30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9e80 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000010>;
+P_0x6000033b9ec0 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbd5f0_0 .net "data_in", 15 0, L_0x600002cbc0a0;  alias, 1 drivers
+v0x600002fbd680_0 .net "data_out", 7 0, L_0x600002cbc460;  alias, 1 drivers
+L_0x600002cbc320 .part L_0x600002cbc0a0, 8, 8;
+L_0x600002cbc3c0 .part L_0x600002cbc0a0, 0, 8;
+S_0x148709680 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x148709510;
+ .timescale 0 0;
+P_0x6000008ba7c0 .param/l "HALF_SIZE" 1 3 15, +C4<00000000000000000000000000000001>;
+v0x600002fbd3b0_0 .net "left_half", 7 0, L_0x600002cbc320;  1 drivers
+v0x600002fbd440_0 .net "right_half", 7 0, L_0x600002cbc3c0;  1 drivers
+v0x600002fbd4d0_0 .net "sum_left", 7 0, L_0x6000036bc620;  1 drivers
+v0x600002fbd560_0 .net "sum_right", 7 0, L_0x6000036bc690;  1 drivers
+L_0x600002cbc460 .arith/sum 8, L_0x6000036bc620, L_0x6000036bc690;
+S_0x1487097f0 .scope module, "adder_left" "tree_adder" 3 26, 3 1 0, S_0x148709680;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9f00 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000001>;
+P_0x6000033b9f40 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbd170_0 .net "data_in", 7 0, L_0x600002cbc320;  alias, 1 drivers
+v0x600002fbd200_0 .net "data_out", 7 0, L_0x6000036bc620;  alias, 1 drivers
+S_0x148709960 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x1487097f0;
+ .timescale 0 0;
+L_0x6000036bc620 .functor BUFZ 8, L_0x600002cbc320, C4<00000000>, C4<00000000>, C4<00000000>;
+S_0x148709ad0 .scope module, "adder_right" "tree_adder" 3 32, 3 1 0, S_0x148709680;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "data_in";
+    .port_info 1 /OUTPUT 8 "data_out";
+P_0x6000033b9f80 .param/l "SIZE" 0 3 3, +C4<00000000000000000000000000000001>;
+P_0x6000033b9fc0 .param/l "WIDTH" 0 3 2, +C4<00000000000000000000000000001000>;
+v0x600002fbd290_0 .net "data_in", 7 0, L_0x600002cbc3c0;  alias, 1 drivers
+v0x600002fbd320_0 .net "data_out", 7 0, L_0x6000036bc690;  alias, 1 drivers
+S_0x148709c40 .scope generate, "genblk1" "genblk1" 3 10, 3 10 0, S_0x148709ad0;
+ .timescale 0 0;
+L_0x6000036bc690 .functor BUFZ 8, L_0x600002cbc3c0, C4<00000000>, C4<00000000>, C4<00000000>;
+    .scope S_0x14870aaa0;
+T_0 ;
+    %vpi_call 2 25 "$display", "Testing SIZE = 1" {0 0 0};
+    %pushi/vec4 5, 0, 32;
+    %store/vec4 v0x600002fbda70_0, 0, 32;
+    %delay 10000, 0;
+    %load/vec4 v0x600002fbdb00_0;
+    %cmpi/e 5, 0, 8;
+    %jmp/0xz  T_0.0, 4;
+    %vpi_call 2 29 "$display", "PASS: data_out = %h", v0x600002fbdb00_0 {0 0 0};
+    %jmp T_0.1;
+T_0.0 ;
+    %vpi_call 2 31 "$display", "FAIL: data_out = %h, expected 05", v0x600002fbdb00_0 {0 0 0};
+T_0.1 ;
+    %vpi_call 2 34 "$display", "Testing SIZE = 2" {0 0 0};
+    %pushi/vec4 770, 0, 32;
+    %store/vec4 v0x600002fbda70_0, 0, 32;
+    %delay 10000, 0;
+    %load/vec4 v0x600002fbdb00_0;
+    %cmpi/e 5, 0, 8;
+    %jmp/0xz  T_0.2, 4;
+    %vpi_call 2 38 "$display", "PASS: data_out = %h", v0x600002fbdb00_0 {0 0 0};
+    %jmp T_0.3;
+T_0.2 ;
+    %vpi_call 2 40 "$display", "FAIL: data_out = %h, expected 05", v0x600002fbdb00_0 {0 0 0};
+T_0.3 ;
+    %vpi_call 2 43 "$display", "Testing SIZE = 4" {0 0 0};
+    %pushi/vec4 16909060, 0, 32;
+    %store/vec4 v0x600002fbda70_0, 0, 32;
+    %delay 10000, 0;
+    %load/vec4 v0x600002fbdb00_0;
+    %cmpi/e 10, 0, 8;
+    %jmp/0xz  T_0.4, 4;
+    %vpi_call 2 47 "$display", "PASS: data_out = %h", v0x600002fbdb00_0 {0 0 0};
+    %jmp T_0.5;
+T_0.4 ;
+    %vpi_call 2 49 "$display", "FAIL: data_out = %h, expected 0A", v0x600002fbdb00_0 {0 0 0};
+T_0.5 ;
+    %vpi_call 2 52 "$display", "Testing SIZE = 4 with overflow" {0 0 0};
+    %pushi/vec4 4294967295, 0, 32;
+    %store/vec4 v0x600002fbda70_0, 0, 32;
+    %delay 10000, 0;
+    %load/vec4 v0x600002fbdb00_0;
+    %cmpi/e 252, 0, 8;
+    %jmp/0xz  T_0.6, 4;
+    %vpi_call 2 56 "$display", "PASS: data_out = %h", v0x600002fbdb00_0 {0 0 0};
+    %jmp T_0.7;
+T_0.6 ;
+    %vpi_call 2 58 "$display", "FAIL: data_out = %h, expected FC", v0x600002fbdb00_0 {0 0 0};
+T_0.7 ;
+    %vpi_call 2 61 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "tree_adder.v";
